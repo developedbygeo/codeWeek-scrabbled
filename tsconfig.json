@@ -14,9 +14,11 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@/elements/*": ["./src/components/elements/*"],
+      "@/modules/*": ["./src/components/modules/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "tailwind.config.js", "tailwind.config.ts", "next.config.js"]
 }
