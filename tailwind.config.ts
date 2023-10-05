@@ -33,6 +33,12 @@ module.exports = {
         body: ['var(--font-open-sans)'],
         display: ['var(--font-roboto)'],
       },
+      fontSize: {
+        '10xl': '10rem',
+      },
+      backgroundImage: {
+        'paper-pattern': "url('/paper-background.jpg')",
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -86,11 +92,16 @@ module.exports = {
           '0%': { transform: 'translateY(0)' },
           '100%': { transform: 'translateY(-1rem)' },
         },
+        blink: {
+          '0%, 100%': { opacity: 1 },
+          '50%': { opacity: 0 },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'wave-motion': 'waveMotion 3s infinite alternate',
+        blink: 'blink 0.8s infinite',
       },
       textShadow: {
         sm: '0 1px 2px #000',
