@@ -9,7 +9,6 @@ const useGuessWord = (word: string) => {
     displayState: '_'.repeat(word.length),
     currentIndex: 0,
     message: null,
-    wordFound: false,
   });
 
   const handleReset = () => {

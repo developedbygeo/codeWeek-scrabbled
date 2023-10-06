@@ -5,7 +5,6 @@ export type GuessWordState = {
 };
 export type GuessWordAction =
   | { type: 'ADD_LETTER'; payload: { letter: string; word: string } }
-  | { type: 'UPDATE_DISPLAY'; payload: { letter: string } }
   | { type: 'BACKSPACE' }
-  | { type: 'RESET'; payload: { word: string } }
+  | { type: 'RESET'; payload: { word: string; message?: string } }
   | { type: 'COMPLETE_WORD'; payload: { word: string } };
