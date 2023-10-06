@@ -1,16 +1,31 @@
-import WordDisplay from '@/elements/WordDisplay';
-import useGuessWord from '@/hooks/useGuessWord';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
-type WordGuessProps = {
+import useGuessWord from '@/hooks/useGuessWord';
+import { CommonProps } from '@/types/general';
+
+import WordDisplay from '@/elements/WordDisplay';
+
+type WordGuessProps = CommonProps & {
   word: string;
   hint: string;
 };
 
-const WordGuess = ({ word, hint }: WordGuessProps) => {
-  const [displayState, message] = useGuessWord(word);
+const WordGuess = ({ className, word, hint }: WordGuessProps) => {
+  const [displayState, message, handleReset] = useGuessWord(word);
+  const {
+    pathname,
+    query: { wordFound },
+  } = useRouter();
+
+  useEffect(() => {
+    if (!wordFound) {
+      handleReset();
+    }
+  }, [pathname, wordFound]);
 
   return (
-    <div>
+    <div className={className}>
       <h1>Guess the word!</h1>
       <p>Συμβουλή: {hint}</p>
       <WordDisplay word={displayState} />
