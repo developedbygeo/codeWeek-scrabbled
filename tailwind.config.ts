@@ -37,7 +37,7 @@ module.exports = {
         '10xl': '10rem',
       },
       backgroundImage: {
-        'paper-pattern': "url('/paper-background.jpg')",
+        notebook: "url('/notebook.jpg')",
       },
       colors: {
         border: 'hsl(var(--border))',
