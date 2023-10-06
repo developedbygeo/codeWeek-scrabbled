@@ -51,12 +51,6 @@ function guessWordReducer(state: GuessWordState, action: GuessWordAction): Guess
         message: 'Please try again.',
       };
 
-    case 'SET_MESSAGE':
-      return {
-        ...state,
-        message: action.payload.message,
-      };
-
     case 'COMPLETE_WORD':
       return {
         ...state,
