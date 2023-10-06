@@ -43,20 +43,32 @@ function guessWordReducer(state: GuessWordState, action: GuessWordAction): Guess
       };
     }
 
-    case 'RESET':
+    case 'RESET': {
       return {
         ...state,
         displayState: '_'.repeat(action.payload.word.length),
         currentIndex: 0,
-        message: 'Please try again.',
+        message: action.payload.message || null,
       };
+    }
 
-    case 'COMPLETE_WORD':
+    case 'COMPLETE_WORD': {
       return {
         ...state,
         message: state.displayState === action.payload.word ? 'Congratulations! You guessed the word!' : null,
       };
+    }
+    case 'BACKSPACE': {
+      const newDisplayStateArray = state.displayState.split('');
 
+      newDisplayStateArray[state.currentIndex - 1] = '_';
+
+      return {
+        ...state,
+        displayState: newDisplayStateArray.join(''),
+        currentIndex: state.currentIndex - 1,
+      };
+    }
     default:
       return state;
   }
