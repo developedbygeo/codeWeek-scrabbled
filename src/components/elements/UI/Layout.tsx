@@ -11,13 +11,8 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <>
-      <div className={cn('relative h-full w-full bg-blue-100', RobotoFont.className, OpenSansFont.className)}>
-        {/* <Header /> */}
-        <main className="relative">
-          <div className="overflow-hidden">{children}</div>
-        </main>
-        {/* <Footer /> */}
-      </div>
+      <main className={cn('relative', RobotoFont.className, OpenSansFont.className)}>{children}</main>
+      {/* <Footer /> */}
     </>
   );
 };
