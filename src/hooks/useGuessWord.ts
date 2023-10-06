@@ -1,48 +1,47 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer } from 'react';
+import guessWordReducer from '@/store/guessWordReducer';
 
 const useGuessWord = (word: string) => {
-  const [displayState, setDisplayState] = useState('_'.repeat(word.length));
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [message, setMessage] = useState<string | null>(null);
+  const [state, dispatch] = useReducer(guessWordReducer, {
+    displayState: '_'.repeat(word.length),
+    currentIndex: 0,
+    message: null,
+  });
 
   const handleKeyPress = (e: KeyboardEvent) => {
     const character = e.key;
 
-    // Check if the key pressed is a letter and no message is displayed
-    if (
-      character.length === 1 &&
-      /[a-zA-Z]/.test(character) &&
-      !message &&
-      currentIndex < word.length &&
-      !message &&
-      currentIndex < word.length
-    ) {
-      const guessedLetter = e.key.toLowerCase();
+    // Check if the key pressed is a letter
+    if (character.length === 1 && /[a-zA-Z]/.test(character)) {
+      if (state.currentIndex < word.length) {
+        dispatch({ type: 'ADD_LETTER', payload: { letter: character, word } });
 
-      let newDisplayStateArray = displayState.split('');
+        // Check for word completion
+        if (state.currentIndex === word.length - 1) {
+          const completedWord = state.displayState.replace(/_/g, '') + character;
 
-      // Check if guessed letter matches the letter at the current index in the word
-      if (word[currentIndex].toLowerCase() === guessedLetter) {
-        newDisplayStateArray[currentIndex] = word[currentIndex];
-
-        if (!newDisplayStateArray.includes('_')) {
-          setMessage('Congratulations! You guessed the word!');
+          if (completedWord.toLowerCase() === word.toLowerCase()) {
+            dispatch({ type: 'COMPLETE_WORD', payload: { word } });
+          } else {
+            dispatch({ type: 'RESET', payload: { word } });
+          }
         }
-      } else {
-        newDisplayStateArray[currentIndex] = guessedLetter;
       }
-
-      setCurrentIndex((prev) => Math.min(prev + 1, word.length - 1));
-      setDisplayState(newDisplayStateArray.join(''));
+    } else if (e.key === 'Backspace' && state.currentIndex > 0) {
+      dispatch({ type: 'BACKSPACE' });
     }
   };
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [word, displayState, message, currentIndex]);
+  }, [word, state]);
 
-  return [displayState, message, handleKeyPress] as const;
+  useEffect(() => {
+    console.log(state.message);
+  }, [state.message]);
+
+  return [state.displayState, state.message] as const;
 };
 
 export default useGuessWord;
