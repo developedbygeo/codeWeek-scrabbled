@@ -1,12 +1,20 @@
 import { useEffect, useReducer } from 'react';
+import { useRouter } from 'next/router';
+
 import guessWordReducer from '@/store/guessWordReducer';
 
 const useGuessWord = (word: string) => {
+  const { push, asPath } = useRouter();
   const [state, dispatch] = useReducer(guessWordReducer, {
     displayState: '_'.repeat(word.length),
     currentIndex: 0,
     message: null,
+    wordFound: false,
   });
+
+  const handleReset = () => {
+    dispatch({ type: 'RESET', payload: { word } });
+  };
 
   const handleKeyPress = (e: KeyboardEvent) => {
     const character = e.key;
@@ -22,12 +30,14 @@ const useGuessWord = (word: string) => {
 
           if (completedWord.toLowerCase() === word.toLowerCase()) {
             dispatch({ type: 'COMPLETE_WORD', payload: { word } });
+            push(`${asPath}&wordFound=true`);
           } else {
-            dispatch({ type: 'RESET', payload: { word } });
+            dispatch({ type: 'RESET', payload: { word, message: 'Oops, try again!' } });
           }
         }
       }
     } else if (e.key === 'Backspace' && state.currentIndex > 0) {
+      console.log('in backspace');
       dispatch({ type: 'BACKSPACE' });
     }
   };
@@ -37,7 +47,7 @@ const useGuessWord = (word: string) => {
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [word, state]);
 
-  return [state.displayState, state.message] as const;
+  return [state.displayState, state.message, handleReset] as const;
 };
 
 export default useGuessWord;
