@@ -9,4 +9,5 @@ type Level = {
   title: string;
   question: Question;
   level: number;
+  maxLevel: number;
 };
