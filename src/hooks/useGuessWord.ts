@@ -37,10 +37,6 @@ const useGuessWord = (word: string) => {
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [word, state]);
 
-  useEffect(() => {
-    console.log(state.message);
-  }, [state.message]);
-
   return [state.displayState, state.message] as const;
 };
 

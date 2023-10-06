@@ -35,8 +35,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const levelQuestion = data.find((question: Question) => question.level === parsedLevel);
 
-  console.log(levelQuestion);
-
   if (!levelQuestion) {
     return {
       notFound: true,
