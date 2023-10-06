@@ -17,8 +17,6 @@ const NextChallengeButton = ({ className, level, maxLevel }: NextChallengeButton
   const isCurrentLevelValid = !isNaN(Number(currentLevel)) && Number(currentLevel) > 0;
   const nextLevel = Number(currentLevel) + 1;
 
-  console.log(query.wordFound);
-
   return shouldRenderNextLevel && isCurrentLevelValid ? (
     <Button className={className} size="lg" asChild>
       <Link href={`${pathname}?level=${nextLevel}`}>Επόμενο επίπεδο</Link>

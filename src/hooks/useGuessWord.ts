@@ -36,7 +36,6 @@ const useGuessWord = (word: string) => {
         }
       }
     } else if (e.key === 'Backspace' && state.currentIndex > 0) {
-      console.log('in backspace');
       dispatch({ type: 'BACKSPACE' });
     }
   };
