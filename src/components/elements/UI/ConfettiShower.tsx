@@ -1,0 +1,11 @@
+import { useWindowSize } from '@uidotdev/usehooks';
+
+import Confetti from 'react-confetti';
+
+const ConfettiShower = () => {
+  const { width, height } = useWindowSize();
+
+  return <Confetti width={width || 300} height={height || 300} />;
+};
+
+export default ConfettiShower;
