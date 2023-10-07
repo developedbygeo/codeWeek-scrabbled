@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { CommonProps } from '@/types/general';
 
 import { Button } from '@/elements/UI/Button/Button';
+import ConfettiShower from '@/elements/UI/ConfettiShower';
 
 type NextChallengeButtonProps = CommonProps & {
   level: number;
@@ -18,9 +19,12 @@ const NextChallengeButton = ({ className, level, maxLevel }: NextChallengeButton
   const nextLevel = Number(currentLevel) + 1;
 
   return shouldRenderNextLevel && isCurrentLevelValid ? (
-    <Button className={className} size="lg" asChild>
-      <Link href={`${pathname}?level=${nextLevel}`}>Επόμενο επίπεδο</Link>
-    </Button>
+    <>
+      <ConfettiShower />
+      <Button className={className} size="lg" asChild>
+        <Link href={`${pathname}?level=${nextLevel}`}>Επόμενο επίπεδο</Link>
+      </Button>
+    </>
   ) : null;
 };
 
