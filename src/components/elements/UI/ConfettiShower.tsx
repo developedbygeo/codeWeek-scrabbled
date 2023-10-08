@@ -1,5 +1,6 @@
-import { useWindowSize } from '@uidotdev/usehooks';
+'use client';
 
+import { useWindowSize } from '@uidotdev/usehooks';
 import Confetti from 'react-confetti';
 
 const ConfettiShower = () => {
