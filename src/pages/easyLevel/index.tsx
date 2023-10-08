@@ -1,9 +1,6 @@
 import path from 'path';
 import fs from 'fs';
 import { GetServerSideProps } from 'next';
-import { motion } from 'framer-motion';
-
-import { fadeInVariant } from '@/libs/animations';
 
 import FadeInParagraph from '@/elements/UI/Animated/FadeInParagraph';
 import WordGuess from '@/elements/WordGuess';
