@@ -1,6 +1,4 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-
+import useShouldProgress from '@/hooks/useShouldProgress';
 import useGuessWord from '@/hooks/useGuessWord';
 import { CommonProps } from '@/types/general';
 
@@ -13,16 +11,7 @@ type WordGuessProps = CommonProps & {
 
 const WordGuess = ({ className, word, hint }: WordGuessProps) => {
   const [displayState, message, handleReset] = useGuessWord(word);
-  const {
-    pathname,
-    query: { wordFound },
-  } = useRouter();
-
-  useEffect(() => {
-    if (!wordFound) {
-      handleReset();
-    }
-  }, [pathname, wordFound]);
+  const _ = useShouldProgress(displayState, handleReset);
 
   return (
     <div className={className}>
