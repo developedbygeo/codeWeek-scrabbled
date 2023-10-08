@@ -6,9 +6,10 @@ import { CommonProps } from '@/types/general';
 type StaggeredFadeInProps = CommonProps & {
   delay?: number;
   children: React.ReactNode;
+  wrapperClassName?: string;
 };
 
-const StaggeredFadeIn = ({ className, children, delay = 1 }: StaggeredFadeInProps) => {
+const StaggeredFadeIn = ({ className, wrapperClassName, children, delay = 1 }: StaggeredFadeInProps) => {
   return (
     <motion.div
       className={className}
@@ -18,7 +19,9 @@ const StaggeredFadeIn = ({ className, children, delay = 1 }: StaggeredFadeInProp
       animate="visible"
     >
       {Children.map(children, (child) => (
-        <motion.div variants={fadeInVariant}>{child}</motion.div>
+        <motion.div className={wrapperClassName} variants={fadeInVariant}>
+          {child}
+        </motion.div>
       ))}
     </motion.div>
   );
