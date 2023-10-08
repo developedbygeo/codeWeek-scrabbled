@@ -19,11 +19,11 @@ export default function Home() {
             <Link href="/easyLevel?level=1">Easy</Link>
           </Button>
           {/* TODO need to fix hover color */}
-          <Button asChild variant="default" size="lg" className="w-full bg-[#e34c67]">
+          <Button asChild variant="default" size="lg" className="w-full bg-[#e34c67] hover:bg-[#9F1931]">
             <Link href="/mediumLevel?level=1">Medium</Link>
           </Button>
           {/* TODO need to fix hover color */}
-          <Button asChild variant="default" size="lg" className="w-full bg-[#c62368]">
+          <Button asChild variant="default" size="lg" className="w-full bg-[#c62368] hover:bg-[#9C1C51]">
             <Link href="/hardLevel?level=1">Hard</Link>
           </Button>
         </StaggeredFadeIn>
