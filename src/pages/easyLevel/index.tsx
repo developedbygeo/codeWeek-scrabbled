@@ -5,6 +5,7 @@ import { GetServerSideProps } from 'next';
 import FadeInParagraph from '@/elements/UI/Animated/FadeInParagraph';
 import WordGuess from '@/elements/WordGuess';
 import NextChallengeButton from '@/elements/NextChallengeButton';
+import AnimatedMinions from '@/elements/UI/Animated/AnimatedMinions';
 
 const EasyLevel = ({ title, question, level, maxLevel }: Level) => {
   return (
@@ -19,6 +20,7 @@ const EasyLevel = ({ title, question, level, maxLevel }: Level) => {
         hint={question.hint}
       />
       <NextChallengeButton className="col-span-2 col-start-6 row-start-6" level={level} maxLevel={maxLevel} />
+      <AnimatedMinions className="row-start-5 relative top-28 col-start-9 col-span-3" />
     </>
   );
 };
