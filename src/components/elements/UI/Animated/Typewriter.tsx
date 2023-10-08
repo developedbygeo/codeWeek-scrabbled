@@ -7,7 +7,7 @@ type TypewriterProps = MotionProps & {
   children?: ReactNode;
 };
 
-const Typewriter: React.FC<TypewriterProps> = ({ text, children, as: Component = 'div', ...motionProps }) => {
+const Typewriter = ({ text, children, as: Component = 'div', ...motionProps }: TypewriterProps) => {
   const [typewriterText, setTypewriterText] = useState('');
   const [typingCompleted, setTypingCompleted] = useState(false);
 
@@ -29,7 +29,7 @@ const Typewriter: React.FC<TypewriterProps> = ({ text, children, as: Component =
 
   return (
     <motion.div {...motionProps}>
-      <Component>
+      <Component className="font-sans">
         {typewriterText}
         {!typingCompleted && <span className="text-opacity-50 animate-blink">_</span>}
         {children}
