@@ -13,16 +13,8 @@ const EasyLevel = ({ title, question, level, maxLevel }: Level) => {
   return (
     <>
       <div className="flex row-start-2  flex-col col-span-12 items-center justify-center">
-        <motion.h1
-          variants={fadeInVariant}
-          transition={{ delay: 1, duration: 0.5 }}
-          initial="hidden"
-          animate="visible"
-          className="z-10 relative"
-        >
-          {title}
-        </motion.h1>
-        <FadeInParagraph text={`Επίπεδο ${level}`} />
+        <h1 className="z-10 relative">{title}</h1>
+        <FadeInParagraph delay={0.5} text={`Επίπεδο ${level}`} />
       </div>
       <WordGuess
         className="col-span-12 row-start-4 justify-self-center flex justify-center flex-col items-center"
