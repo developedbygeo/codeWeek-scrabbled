@@ -4,7 +4,6 @@ import { CommonProps } from '@/types/general';
 import Typewriter from '@/elements/UI/Animated/Typewriter';
 import FadeInParagraph from '@/elements/UI/Animated/FadeInParagraph';
 
-// TODO add TypeAnimation with framer motion
 const HomeTitle = ({ className }: CommonProps) => {
   return (
     <article className={cn('flex justify-center items-center flex-col gap-1', className)}>
