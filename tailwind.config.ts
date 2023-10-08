@@ -96,12 +96,19 @@ module.exports = {
           '0%, 100%': { opacity: 1 },
           '50%': { opacity: 0 },
         },
+        sway: {
+          '0%, 100%': { transform: 'rotate(0deg)' },
+          '25%': { transform: 'rotate(1deg)' },
+          '50%': { transform: 'rotate(-1deg)' },
+          '75%': { transform: 'rotate(1deg)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'wave-motion': 'waveMotion 3s infinite alternate',
         blink: 'blink 0.8s infinite',
+        sway: 'sway 5s infinite',
       },
       textShadow: {
         sm: '0 1px 2px #000',
