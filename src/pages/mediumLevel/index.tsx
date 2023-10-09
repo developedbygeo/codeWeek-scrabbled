@@ -24,7 +24,7 @@ const EasyLevel = ({ title, question, level, maxLevel }: Level) => {
         level={level}
         maxLevel={maxLevel}
       />
-      <AnimatedMinions className="row-start-5 relative top-28 col-start-9 col-span-3" />
+      <AnimatedMinions className="absolute bottom-0 right-0 h-60 lg:h-52 xl:h-60 2xl:h-[20rem] 3xl:h-[23rem] 4xl:h-[30rem]" />
     </>
   );
 };

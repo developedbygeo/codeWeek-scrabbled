@@ -29,6 +29,10 @@ module.exports = {
       '-360': '-360deg',
     },
     extend: {
+      screens: {
+        '3xl': '1600px',
+        '4xl': '2000px',
+      },
       fontFamily: {
         body: ['var(--font-open-sans)'],
         display: ['var(--font-roboto)'],
