@@ -1,4 +1,4 @@
-# Audiophile
+# CodeWeek - ScrabbleEd
 
 <div style="display: flex">
 <img src='./public/example.png' height='250px' width='550px' alt='desktop viewport'/>
