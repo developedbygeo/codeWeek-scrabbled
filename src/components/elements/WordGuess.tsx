@@ -17,7 +17,13 @@ const WordGuess = ({ className, word, hint }: WordGuessProps) => {
   const _ = useShouldProgress(displayState, handleReset);
 
   return (
-    <motion.div className={className}>
+    <motion.div
+      variants={fadeInVariant}
+      initial="hidden"
+      animate="visible"
+      transition={{ delay: 1.15, duration: 0.3 }}
+      className={className}
+    >
       <motion.h2
         variants={fadeInVariant}
         transition={{ delay: 1, duration: 0.5 }}
@@ -34,7 +40,14 @@ const WordGuess = ({ className, word, hint }: WordGuessProps) => {
       >
         Συμβουλή: {hint}
       </motion.p>
-      <WordDisplay word={displayState} />
+      <motion.div
+        variants={fadeInVariant}
+        initial="hidden"
+        animate="visible"
+        transition={{ delay: 2, duration: 0.3 }}
+      >
+        <WordDisplay word={displayState} />
+      </motion.div>
       {message && <p>{message}</p>}
     </motion.div>
   );
