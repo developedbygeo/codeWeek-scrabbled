@@ -19,7 +19,11 @@ const EasyLevel = ({ title, question, level, maxLevel }: Level) => {
         word={question.word}
         hint={question.hint}
       />
-      <NextChallengeButton className="col-span-2 col-start-6 row-start-6" level={level} maxLevel={maxLevel} />
+      <NextChallengeButton
+        className="xl:col-span-2 lg:col-span-4 lg:col-start-5  xl:col-start-6 row-start-6"
+        level={level}
+        maxLevel={maxLevel}
+      />
       <AnimatedMinions className="row-start-5 relative top-28 col-start-9 col-span-3" />
     </>
   );
