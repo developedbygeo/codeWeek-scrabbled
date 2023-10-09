@@ -1,40 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Audiophile
 
-## Getting Started
+<div style="display: flex">
+<img src='./public/example.png' height='250px' width='550px' alt='desktop viewport'/>
+</div>
 
-First, run the development server:
+<br>
+<br>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+A very simple guess-the-word game built with Next + Typescript.
+
+Built for CodeWeek, this simple project was create to familiarize Greek elementary school students with the very basics of programming - in essence the idea of I/O, while also sharpening their knowledge of the English language.
+
+Precisely, to progress in this game, students will have to provide input and guess the word in question. In addition, they will also be taught about mouse events, with a fun SVG animation, where the minion-like creatures are tracking the mouse movement with their eyes.
+
+It implements lazy loading and it is based on TypeScript, React Router, Redux Toolkit, Styled Components and Framer Motion. For a detailed overview, please have a look at the [**Features**](#features) & [**Tech**](#tech) section.
+
+**Note**: All of the image assets, along with the design files were provided by Frontend Mentor, as part of the [_Audiophile e-commerce website_](https://www.frontendmentor.io/challenges/audiophile-ecommerce-website-C8cuSd_wx) challenge.
+
+<br>
+
+## Installation
+
+As this project was bootstrapped with Next, the following scripts are available:
+
+**Install** the dependencies:
+
+```
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Run the app in **development** mode:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```
+npm run dev
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+<br>
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## <a id='features'></a>Features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- 3 difficulty levels.
+- JSON-provided data with server-side rendering.
+- URL-managed state.
 
-## Learn More
+<br>
 
-To learn more about Next.js, take a look at the following resources:
+## <a id='tech'></a>Tech
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Next
+- TypeScript
+- Framer Motion
+- Tailwind
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+For a more detailed overview of the development & production dependencies, please check `package.json`.
 
-## Deploy on Vercel
+<br>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[MIT](./LICENSE.md)
