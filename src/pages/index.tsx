@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="relative h-screen w-screen flex flex-col items-center justify-center">
+    <div className="relative h-[92vh] w-screen flex flex-col items-center justify-center">
       <section className="mb-60">
         <Landing />
         <StaggeredFadeIn
