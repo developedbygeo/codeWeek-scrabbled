@@ -29,7 +29,7 @@ const Homepage = ({ isMobile }: HomepageProps) => {
         <StaggeredFadeIn
           delay={3.5}
           className="flex flex-col items-center mt-12 gap-4"
-          wrapperClassName="w-full"
+          wrapperClassName="w-full lg:w-[10rem] xl:w-[15rem]"
         >
           <Button asChild variant="default" size="lg" className="w-full bg-[#fa7268]">
             <Link href="/easyLevel?level=1">Easy</Link>
