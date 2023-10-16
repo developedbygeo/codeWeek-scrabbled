@@ -10,8 +10,10 @@ type HeaderProps = CommonProps & {
 
 const Header = ({ className, shouldRenderHomeLink }: HeaderProps) => {
   return (
-    <header className={`${className} w-screen flex justify-between items-center h-[8vh] px-10 py-5`}>
-      <div className="flex gap-4 items-center">
+    <header
+      className={`${className} w-screen flex justify-center lg:justify-between items-center h-[8vh] lg:px-10 mt-5 lg:mt-0 lg:py-5`}
+    >
+      <div className="flex flex-col lg:flex-row gap-4 items-center">
         <div className="relative h-[5vh] aspect-square w-60">
           <Image
             src="/codeweek-logo.png"
